@@ -1,0 +1,29 @@
+# Frontend files (not needed for backend deployment)
+frontend/
+images/
+*.html
+*.css
+*.js
+
+# Documentation
+*.md
+DEPLOYMENT.md
+RENDER_DEPLOYMENT.md
+
+# Scripts
+deploy*.sh
+quick-deploy.sh
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo 

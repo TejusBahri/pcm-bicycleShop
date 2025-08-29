@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: pcm-bicycle-shop-backend
+    env: go
+    plan: free
+    buildCommand: cd backend && go build -o main .
+    startCommand: cd backend && ./main
+    envVars:
+      - key: PORT
+        value: 8080
+    healthCheckPath: /api/products 
