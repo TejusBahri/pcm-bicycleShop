@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - PCM Bicycle Shop</title>
+    <meta name="description" content="View and manage your wishlist of bicycles and accessories at PCM Bicycle Shop. Save your favorite products for later.">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/wishlist.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-bicycle"></i>
+                <span>PCM Bikes</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="catalog.html" class="nav-link">Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="wishlist.html" class="nav-link active">
+                        <i class="fas fa-heart"></i>
+                        <span class="wishlist-count">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Wishlist Header -->
+    <section class="wishlist-header">
+        <div class="container">
+            <h1>My Wishlist</h1>
+            <p>Your saved products and dream bikes</p>
+        </div>
+    </section>
+
+    <!-- Wishlist Content -->
+    <section class="wishlist-content">
+        <div class="container">
+            <!-- Empty Wishlist State -->
+            <div class="empty-wishlist" id="empty-wishlist">
+                <div class="empty-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2>Your wishlist is empty</h2>
+                <p>Start browsing our catalog and add products to your wishlist</p>
+                <a href="catalog.html" class="btn btn-primary">Browse Catalog</a>
+            </div>
+
+            <!-- Wishlist Items -->
+            <div class="wishlist-items" id="wishlist-items" style="display: none;">
+                <div class="wishlist-header-row">
+                    <h2>Wishlist Items (<span id="wishlist-count">0</span>)</h2>
+                    <button id="clear-wishlist" class="btn btn-secondary">Clear All</button>
+                </div>
+                
+                <div class="wishlist-grid" id="wishlist-grid">
+                    <!-- Wishlist items will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="recommendations" id="recommendations-section" style="display: none;">
+        <div class="container">
+            <h2>You might also like</h2>
+            <div class="recommendations-grid" id="recommendations-grid">
+                <!-- Recommendations will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PCM Bicycle Shop</h3>
+                    <p>Your trusted partner for premium bicycles and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Browse Catalog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="wishlist.html">My Wishlist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Cycling Street, Downtown</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@pcmbikes.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PCM Bicycle Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-content">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+</html> 

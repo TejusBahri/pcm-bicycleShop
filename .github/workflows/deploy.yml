@@ -1,0 +1,45 @@
+name: Deploy PCM Bicycle Shop
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # Deploy Backend to Railway
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+    
+    - name: Build Go application
+      working-directory: ./backend
+      run: |
+        go mod download
+        go build -o main .
+    
+    - name: Deploy to Railway
+      uses: railway/deploy@v1
+      with:
+        railway_token: ${{ secrets.RAILWAY_TOKEN }}
+        service: pcm-bicycle-shop-backend
+
+  # Deploy Frontend to GitHub Pages
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    needs: deploy-backend
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./frontend
+        publish_branch: gh-pages 
