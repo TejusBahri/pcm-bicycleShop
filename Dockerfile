@@ -1,9 +1,6 @@
 # Build stage
 FROM golang:1.21-alpine AS builder
 
-# Install build dependencies for CGO
-RUN apk add --no-cache gcc musl-dev sqlite-dev
-
 # Set working directory
 WORKDIR /app
 
@@ -16,14 +13,14 @@ RUN go mod download
 # Copy source code
 COPY backend/ ./
 
-# Build the application
-RUN CGO_ENABLED=1 GOOS=linux go build -a -installsuffix cgo -o main .
+# Build the application (no CGO needed)
+RUN GOOS=linux go build -a -installsuffix cgo -o main .
 
 # Runtime stage
 FROM alpine:latest
 
-# Install ca-certificates and SQLite runtime
-RUN apk --no-cache add ca-certificates sqlite
+# Install ca-certificates
+RUN apk --no-cache add ca-certificates
 
 # Create app user
 RUN addgroup -g 1001 -S appgroup && \
