@@ -42,10 +42,10 @@ function displayShopInfo(shopInfo) {
 
 function showDefaultShopInfo() {
     const defaultInfo = {
-        address: '123 Cycling Street, Downtown, City, State 12345',
-        phone: '+1 (555) 123-4567',
-        email: 'info@pcmbikes.com',
-        hours: 'Mon-Fri: 9AM-7PM, Sat: 9AM-6PM, Sun: 10AM-5PM'
+        address: 'Punjab Cycle Mart, Ramlila Road, Banda (U.P.)-210001',
+        phone: '+91 8130037100',
+        email: 'harsh2.bahri@gmail.com',
+        hours: 'Wed-Mon: 10AM-8PM, Tues: 10AM-6PM'
     };
     
     displayShopInfo(defaultInfo);
