@@ -74,28 +74,50 @@ function handleFilterChange(e) {
 
 function applyFilters() {
     filteredProducts = allProducts.filter(product => {
-        if (currentFilters.search && !product.name.toLowerCase().includes(currentFilters.search) && 
-            !product.description.toLowerCase().includes(currentFilters.search)) {
+        // 🔍 Search filter
+        if (
+            currentFilters.search &&
+            !product.name.toLowerCase().includes(currentFilters.search.toLowerCase()) &&
+            !product.description.toLowerCase().includes(currentFilters.search.toLowerCase())
+        ) {
             return false;
         }
+
+        // 📂 Category filter
         if (currentFilters.category && product.category !== currentFilters.category) {
             return false;
         }
+
+        // 💰 Price filter
         if (currentFilters.price) {
-            const [min, max] = currentFilters.price.split('-').map(p => p === '+' ? Infinity : Number(p));
-            if (product.price < min || (max !== Infinity && product.price > max)) {
+            let min = 0, max = Infinity;
+
+            if (currentFilters.price.includes('-')) {
+                const [low, high] = currentFilters.price.split('-').map(Number);
+                min = low;
+                max = high;
+            } else if (currentFilters.price.endsWith('+')) {
+                min = Number(currentFilters.price.replace('+', ''));
+                max = Infinity;
+            }
+
+            if (product.price < min || product.price > max) {
                 return false;
             }
         }
+
+        // 🏷️ Brand filter
         if (currentFilters.brand && product.brand !== currentFilters.brand) {
             return false;
         }
+
         return true;
     });
-    
+
     displayProducts();
     updateResultsCount();
 }
+
 
 function displayProducts() {
     const productsGrid = document.getElementById('products-grid');
