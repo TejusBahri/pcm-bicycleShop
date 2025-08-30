@@ -159,8 +159,8 @@ func insertSampleData() {
 	_, err := db.Exec(`
 		INSERT OR REPLACE INTO shop_info (id, name, address, phone, email, hours) 
 		VALUES (1, 'PCM Bicycle Shop', '123 Cycling Street, Downtown, City, State 12345', 
-		        '+1 (555) 123-4567', 'info@pcmbikes.com', 
-		        'Mon-Fri: 9AM-7PM, Sat: 9AM-6PM, Sun: 10AM-5PM')
+		        '+91 8130037100', 'harsh2.bahri@gmail.com', 
+		        'Wed-Mon: 10AM-8PM, Tues: 10AM-6PM')
 	`)
 	if err != nil {
 		log.Printf("Error inserting shop info: %v", err)
